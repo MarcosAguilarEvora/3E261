@@ -1,3 +1,59 @@
-class Pacman
-class Fantasma
 class Personaje
+class Pistola
+class HeavyMachineGun
+class Escopeta
+class Lanzacohetes
+class Lanzallamas
+class Laser
+class Shotgun
+class RocketLauncher
+class SuperGrenade
+class EnemyChaser
+Personaje o-- Pistola
+Personaje o-- HeavyMachineGun
+Personaje o-- Escopeta
+Personaje o-- Lanzacohetes
+Personaje o-- Lanzallamas
+Personaje o-- Laser
+Personaje o-- Shotgun
+Personaje o-- RocketLauncher
+Personaje o-- SuperGrenade
+Personaje o-- EnemyChaser
+class MetalSlug
+class SlugFlyer
+class SlugMariner
+class SlugDrill
+class SlugNoid
+Personaje o-- MetalSlug
+Personaje o-- SlugFlyer
+Personaje o-- SlugMariner
+Personaje o-- SlugDrill
+Personaje o-- SlugNoid
+class SoldadoRebelde
+class OficialRebelde
+class TanqueRebelde
+class HelicopteroRebelde
+class Momia
+class Alien
+class Zombie
+Personaje -- SoldadoRebelde
+Personaje -- OficialRebelde
+Personaje -- TanqueRebelde
+Personaje -- HelicopteroRebelde
+Personaje -- Momia
+Personaje -- Alien
+Personaje -- Zombie
+class GeneralMorden
+class NaveAlien
+SoldadoRebelde --> GeneralMorden
+Alien --> NaveAlien
+class Rehen
+class BolsaPuntos
+class Diamante
+class VidaExtra
+class Comida
+Personaje o-- Rehen
+Personaje o-- BolsaPuntos
+Personaje o-- Diamante
+Personaje o-- VidaExtra
+Personaje o-- Comida
