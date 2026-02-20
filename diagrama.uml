@@ -1,9 +1,14 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 class Pacman
 class Fantasma
 class Personaje
 >>>>>>> b30a823 (Practica 2)
+=======
+@startuml
+
+>>>>>>> 52654a8 (Practica 2)
 class Personaje
 class Pistola
 class HeavyMachineGun
@@ -63,7 +68,13 @@ Personaje o-- BolsaPuntos
 Personaje o-- Diamante
 Personaje o-- VidaExtra
 <<<<<<< HEAD
+<<<<<<< HEAD
 Personaje o-- Comida
 =======
 Personaje o-- Comida
 >>>>>>> b30a823 (Practica 2)
+=======
+Personaje o-- Comida
+
+@enduml
+>>>>>>> 52654a8 (Practica 2)
