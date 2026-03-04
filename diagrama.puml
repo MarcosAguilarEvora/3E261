@@ -1,63 +1,97 @@
 @startuml
 
-class Personaje
+class Jugador{
+    - Vida numVida[0..3]
+}
+class Marco
+class Tarma
+class Eri
+class Fio
+
+class Arma{
+    + Escopeta: Disparar()
+}
 class Pistola
 class HeavyMachineGun
-class Escopeta
 class Lanzacohetes
+class Escopeta
 class Lanzallamas
-class Laser
-class Shotgun
-class RocketLauncher
-class SuperGrenade
-class EnemyChaser
-Personaje o-- Pistola
-Personaje o-- HeavyMachineGun
-Personaje o-- Escopeta
-Personaje o-- Lanzacohetes
-Personaje o-- Lanzallamas
-Personaje o-- Laser
-Personaje o-- Shotgun
-Personaje o-- RocketLauncher
-Personaje o-- SuperGrenade
-Personaje o-- EnemyChaser
+
+class Vehiculo
 class MetalSlug
-class SlugFlyer
-class SlugMariner
-class SlugDrill
-class SlugNoid
-Personaje o-- MetalSlug
-Personaje o-- SlugFlyer
-Personaje o-- SlugMariner
-Personaje o-- SlugDrill
-Personaje o-- SlugNoid
-class SoldadoRebelde
-class OficialRebelde
-class TanqueRebelde
-class HelicopteroRebelde
-class Momia
-class Alien
-class Zombie
-Personaje -- SoldadoRebelde
-Personaje -- OficialRebelde
-Personaje -- TanqueRebelde
-Personaje -- HelicopteroRebelde
-Personaje -- Momia
-Personaje -- Alien
-Personaje -- Zombie
-class GeneralMorden
-class NaveAlien
-SoldadoRebelde --> GeneralMorden
-Alien --> NaveAlien
-class Rehen
-class BolsaPuntos
-class Diamante
-class VidaExtra
-class Comida
-Personaje o-- Rehen
-Personaje o-- BolsaPuntos
-Personaje o-- Diamante
-Personaje o-- VidaExtra
-Personaje o-- Comida
+class SlugVolador
+class SlugTanque
+
+class Enemigo
+class Soldado
+class Oficial
+class Rebelde
+class TanqueEnemigo
+class Helicoptero
+class JefeFinal
+class JefeMisionUno
+class JefeMisionDos
+class JefeMisionTres
+class JefeMisionCuatro
+
+class Prisionero
+class Item
+class PowerUp
+class Municion
+class Bomba
+
+class Vida
+class BarraVida
+class Puntuacion
+class Bonus
+class Mision
+class Mundo
+class Tiempo
+
+Jugador <|-- Marco
+Jugador <|-- Tarma
+Jugador <|-- Eri
+Jugador <|-- Fio
+
+Arma <|-- Pistola
+Arma <|-- HeavyMachineGun
+Arma <|-- Lanzacohetes
+Arma <|-- Escopeta
+Arma <|-- Lanzallamas
+
+Vehiculo <|-- MetalSlug
+Vehiculo <|-- SlugVolador
+Vehiculo <|-- SlugTanque
+
+Enemigo <|-- Soldado
+Enemigo <|-- Oficial
+Enemigo <|-- Rebelde
+Enemigo <|-- TanqueEnemigo
+Enemigo <|-- Helicoptero
+Enemigo <|-- JefeFinal
+
+JefeFinal <|-- JefeMisionUno
+JefeFinal <|-- JefeMisionDos
+JefeFinal <|-- JefeMisionTres
+JefeFinal <|-- JefeMisionCuatro
+
+Item <|-- PowerUp
+Item <|-- Municion
+Item <|-- Bomba
+
+Jugador "1" o-- "*" Arma
+Jugador "1" o-- "0..1" Vehiculo
+Jugador "1" -- "0..3" Vida
+Vida "1" -- "1" BarraVida
+Jugador "1" -- "1" Puntuacion
+Jugador "1" --> "*" Prisionero
+Jugador "1" -- "*" Enemigo
+
+Bonus "1" --> "1..*" Puntuacion
+
+Mundo "1" o-- "1..6" Mision
+Mision "1" o-- "*" Enemigo
+Mision "1" o-- "*" Item
+Mision "1" o-- "1" Tiempo
 
 @enduml
