@@ -1,33 +1,49 @@
 @startuml
 
-class Jugador{
-    - Vida numVida[0..3]
+class Jugador {
+    - Vida numVida
+    - Puntuacion puntos
+    - Arma[ ] inventarioArmas
+    - Vehiculo transporteActual
+    - Prisionero[ ] rescatados
 }
+
 class Marco
 class Tarma
 class Eri
 class Fio
 
-class Arma{
-    + Escopeta: Disparar()
+class Arma {
+    - int municion
+    + disparar()
 }
+
 class Pistola
 class HeavyMachineGun
 class Lanzacohetes
 class Escopeta
 class Lanzallamas
 
-class Vehiculo
+class Vehiculo {
+    - Vida resistencia
+    + conducir()
+}
+
 class MetalSlug
 class SlugVolador
 class SlugTanque
 
-class Enemigo
+class Enemigo {
+    - Vida salud
+    + atacar()
+}
+
 class Soldado
 class Oficial
 class Rebelde
 class TanqueEnemigo
 class Helicoptero
+
 class JefeFinal
 class JefeMisionUno
 class JefeMisionDos
@@ -40,14 +56,24 @@ class PowerUp
 class Municion
 class Bomba
 
-class Vida
+class Vida {
+    - BarraVida indicador
+}
+
 class BarraVida
 class Puntuacion
 class Bonus
-class Mision
-class Mundo
+class Mision {
+    - Enemigo[ ] listaEnemigos
+    - Item[ ] listaItems
+    - Tiempo limite
+}
+class Mundo {
+    - Mision[1..6] niveles
+}
 class Tiempo
 
+' --- RELACIONES DE HERENCIA (ES UN) ---
 Jugador <|-- Marco
 Jugador <|-- Tarma
 Jugador <|-- Eri
@@ -79,19 +105,20 @@ Item <|-- PowerUp
 Item <|-- Municion
 Item <|-- Bomba
 
+' --- RELACIONES DE COMPOSICIÓN/AGREGACIÓN (TIENE) ---
 Jugador "1" o-- "*" Arma
 Jugador "1" o-- "0..1" Vehiculo
-Jugador "1" -- "0..3" Vida
-Vida "1" -- "1" BarraVida
-Jugador "1" -- "1" Puntuacion
+Jugador "1" *-- "0..3" Vida
+Vida "1" *-- "1" BarraVida
+Jugador "1" *-- "1" Puntuacion
 Jugador "1" --> "*" Prisionero
 Jugador "1" -- "*" Enemigo
 
 Bonus "1" --> "1..*" Puntuacion
 
-Mundo "1" o-- "1..6" Mision
-Mision "1" o-- "*" Enemigo
-Mision "1" o-- "*" Item
-Mision "1" o-- "1" Tiempo
+Mundo "1" *-- "1..6" Mision
+Mision "1" *-- "*" Enemigo
+Mision "1" *-- "*" Item
+Mision "1" *-- "1" Tiempo
 
 @enduml
