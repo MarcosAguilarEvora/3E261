@@ -73,47 +73,42 @@ class Mundo {
 }
 class Tiempo
 
-Jugador <|-- Marco
-Jugador <|-- Tarma
-Jugador <|-- Eri
-Jugador <|-- Fio
+Marco --|> Jugador
+Tarma --|> Jugador
+Eri --|> Jugador
+Fio --|> Jugador
 
-Arma <|-- Pistola
-Arma <|-- HeavyMachineGun
-Arma <|-- Lanzacohetes
-Arma <|-- Escopeta
-Arma <|-- Lanzallamas
+Pistola --|> Arma
+HeavyMachineGun --|> Arma
+Lanzacohetes --|> Arma
+Escopeta --|> Arma
+Lanzallamas --|> Arma
 
-Vehiculo <|-- MetalSlug
-Vehiculo <|-- SlugVolador
-Vehiculo <|-- SlugTanque
+MetalSlug --|> Vehiculo
+SlugVolador --|> Vehiculo
+SlugTanque --|> Vehiculo
 
-Enemigo <|-- Soldado
-Enemigo <|-- Oficial
-Enemigo <|-- Rebelde
-Enemigo <|-- TanqueEnemigo
-Enemigo <|-- Helicoptero
-Enemigo <|-- JefeFinal
+Soldado --|> Enemigo
+Oficial --|> Enemigo
+Rebelde --|> Enemigo
+TanqueEnemigo --|> Enemigo
+Helicoptero --|> Enemigo
+JefeFinal --|> Enemigo
 
-JefeFinal <|-- JefeMisionUno
-JefeFinal <|-- JefeMisionDos
-JefeFinal <|-- JefeMisionTres
-JefeFinal <|-- JefeMisionCuatro
+JefeMisionUno --|> JefeFinal
+JefeMisionDos --|> JefeFinal
+JefeMisionTres --|> JefeFinal
+JefeMisionCuatro --|> JefeFinal
 
-Item <|-- PowerUp
-Item <|-- Municion
-Item <|-- Bomba
+PowerUp --|> Item
+Municion --|> Item
+Bomba --|> Item
 
 Jugador "1" o-- "*" Arma
 Jugador "1" o-- "0..1" Vehiculo
 Jugador "1" *-- "0..3" Vida
 Vida "1" *-- "1" BarraVida
 Jugador "1" *-- "1" Puntuacion
-Jugador "1" --> "*" Prisionero
-Jugador "1" -- "*" Enemigo
-
-Bonus "1" --> "1..*" Puntuacion
-
 Mundo "1" *-- "1..6" Mision
 Mision "1" *-- "*" Enemigo
 Mision "1" *-- "*" Item
