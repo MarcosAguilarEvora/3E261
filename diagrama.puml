@@ -73,7 +73,6 @@ class Mundo {
 }
 class Tiempo
 
-' --- RELACIONES DE HERENCIA (ES UN) ---
 Jugador <|-- Marco
 Jugador <|-- Tarma
 Jugador <|-- Eri
@@ -105,7 +104,6 @@ Item <|-- PowerUp
 Item <|-- Municion
 Item <|-- Bomba
 
-' --- RELACIONES DE COMPOSICIÓN/AGREGACIÓN (TIENE) ---
 Jugador "1" o-- "*" Arma
 Jugador "1" o-- "0..1" Vehiculo
 Jugador "1" *-- "0..3" Vida
