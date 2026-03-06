@@ -14,7 +14,6 @@ class Eri
 class Fio
 
 class Arma {
-    - int municion
     + disparar()
 }
 
