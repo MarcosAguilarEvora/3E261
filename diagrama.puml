@@ -1,11 +1,9 @@
 @startuml
 
 class Jugador {
-    - Vida numVida
+    - Vida vida[]
     - Puntuacion puntos
-    - Arma[ ] inventarioArmas
-    - Vehiculo transporteActual
-    - Prisionero[ ] rescatados
+    - Prisionero rescatados[]
 }
 
 class Marco
@@ -14,7 +12,7 @@ class Eri
 class Fio
 
 class Arma {
-    + disparar()
+    + Disparar()
 }
 
 class Pistola
@@ -25,7 +23,7 @@ class Lanzallamas
 
 class Vehiculo {
     - Vida resistencia
-    + conducir()
+    + Conducir()
 }
 
 class MetalSlug
@@ -34,7 +32,7 @@ class SlugTanque
 
 class Enemigo {
     - Vida salud
-    + atacar()
+    + Atacar()
 }
 
 class Soldado
@@ -63,12 +61,12 @@ class BarraVida
 class Puntuacion
 class Bonus
 class Mision {
-    - Enemigo[ ] listaEnemigos
-    - Item[ ] listaItems
+    - Enemigo[] listaEnemigos
+    - Item[] listaItems
     - Tiempo limite
 }
 class Mundo {
-    - Mision[1..6] niveles
+    - Mision[] niveles
 }
 class Tiempo
 
@@ -106,6 +104,11 @@ Bomba --|> Item
 Jugador "1" o-- "*" Arma
 Jugador "1" o-- "0..1" Vehiculo
 Jugador "1" *-- "0..3" Vida
+Jugador "1" *-- "*" Prisionero
+
+Vehiculo "1" *-- "1" Vida
+Enemigo "1" *-- "1" Vida
+
 Vida "1" *-- "1" BarraVida
 Jugador "1" *-- "1" Puntuacion
 Mundo "1" *-- "1..6" Mision
