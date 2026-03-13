@@ -61,12 +61,12 @@ class BarraVida
 class Puntuacion
 class Bonus
 class Mision {
-    - Enemigo[] listaEnemigos
-    - Item[] listaItems
+    - Enemigo listaEnemigos[]
+    - Item listaItems[]
     - Tiempo limite
 }
 class Mundo {
-    - Mision[] niveles
+    - Mision niveles[]
 }
 class Tiempo
 
